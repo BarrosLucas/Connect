@@ -1,0 +1,14 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+DeviceList _$DeviceListFromJson(Map<String, dynamic> json) => DeviceList(
+      (json['devices'] as List<dynamic>)
+          .map((e) => Device.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$DeviceListToJson(DeviceList instance) =>
+    <String, dynamic>{
+      'devices': instance.devices,
+    };

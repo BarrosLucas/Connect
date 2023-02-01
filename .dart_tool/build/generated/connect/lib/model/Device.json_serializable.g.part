@@ -1,0 +1,17 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Device _$DeviceFromJson(Map<String, dynamic> json) => Device(
+      json['id'] as int,
+      json['idUser'] as int,
+      json['name'] as String,
+      json['state'] as bool,
+    );
+
+Map<String, dynamic> _$DeviceToJson(Device instance) => <String, dynamic>{
+      'id': instance.id,
+      'idUser': instance.idUser,
+      'name': instance.name,
+      'state': instance.state,
+    };
