@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF1F2D5A),
         body: FutureBuilder<SharedPreferences>(
           future: SharedPreferences.getInstance(),
           builder: (BuildContext context,
@@ -36,7 +36,11 @@ class _SplashState extends State<Splash> {
                       if(snap.data == null){
                         nextScreen = First();
                       }else{
-                        nextScreen = Home(u: snap.data!);
+                        if(snap.data!.id == 0 && snap.data!.name.isEmpty){
+                          nextScreen = First();
+                        }else{
+                          nextScreen = Home(u: snap.data!);
+                        }
                       }
                       return Stack(
                         children: [
@@ -44,10 +48,11 @@ class _SplashState extends State<Splash> {
                             seconds: 3,
                             navigateAfterSeconds:nextScreen,
                             useLoader: false,
+                            backgroundColor: Color(0xFF1F2D5A),
                           ),
                           Positioned(
                             child: Center(
-                              child: Image.asset('assets/images/logo.png'),
+                              child: Image.asset('assets/images/launch.png'),
                             ),
                           ),
                           const Positioned(
@@ -57,17 +62,17 @@ class _SplashState extends State<Splash> {
                             child: Text(
                               "Powered by Lucas Barros",
                               textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ),
                         ],
                       );
                     }else{
-                      print("fasfa");
                       return Stack(
                         children: [
                           Positioned(
                             child: Center(
-                              child: Image.asset('assets/images/logo.png'),
+                              child: Image.asset('assets/images/launch.png'),
                             ),
                           ),
                           const Positioned(
@@ -77,6 +82,7 @@ class _SplashState extends State<Splash> {
                             child: Text(
                               "Powered by Lucas Barros",
                               textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ),
                         ],
@@ -91,10 +97,11 @@ class _SplashState extends State<Splash> {
                       seconds: 3,
                       navigateAfterSeconds:First(),
                       useLoader: false,
+                      backgroundColor: Color(0xFF1F2D5A),
                     ),
                     Positioned(
                       child: Center(
-                        child: Image.asset('assets/images/logo.png'),
+                        child: Image.asset('assets/images/launch.png'),
                       ),
                     ),
                     const Positioned(
@@ -104,6 +111,7 @@ class _SplashState extends State<Splash> {
                       child: Text(
                         "Powered by Lucas Barros",
                         textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
@@ -114,7 +122,7 @@ class _SplashState extends State<Splash> {
                 children: [
                   Positioned(
                     child: Center(
-                      child: Image.asset('assets/images/logo.png'),
+                      child: Image.asset('assets/images/launch.png'),
                     ),
                   ),
                   const Positioned(
@@ -124,6 +132,7 @@ class _SplashState extends State<Splash> {
                     child: Text(
                       "Powered by Lucas Barros",
                       textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],

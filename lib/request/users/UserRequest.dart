@@ -45,7 +45,7 @@ class UserRequest{
       return User.fromJson(jsonDecode(response.body));
     }
     print("Response Order error: ${response.statusCode}");
-    return null;
+    return User(0,"");
   }
 
   Future<bool> updateUser(User user) async {
